@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: |
+  This template launches an EC2 with a security group that enables SSH
+Resources:
+  MyEc2:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-0022f774911c1d690 # most recent ami id of Amazon Linux2
+      InstanceType: t2.micro
+      KeyName: cloudformation # pem file name without extension
+      SecurityGroups:
+        - default # security group name that allows SSH
+      Tags:
+        - Key: Name
+          Value: First-Cf-Stack-Instance
